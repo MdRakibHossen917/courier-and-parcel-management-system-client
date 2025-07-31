@@ -7,27 +7,38 @@ import { Carousel } from "react-responsive-carousel";
 
 const Banner = () => {
   return (
-    <div className="rounded-xl overflow-hidden">
-      <Carousel
-        autoPlay={true}
-        infiniteLoop={true}
-        showThumbs={false}
-        showStatus={false}
-        interval={4000}
-      >
-        <div>
-          <img className="rounded-3xl" src={bannerImg1} alt="Courier Banner 1" />
-          <p className="legend">Fast & Reliable Courier</p>
-        </div>
-        <div>
-          <img className="rounded-3xl" src={bannerImg2} alt="Courier Banner 2" />
-          <p className="legend">Track Your Parcel Real-Time</p>
-        </div>
-        <div>
-          <img className="rounded-3xl" src={bannerImg3} alt="Courier Banner 3" />
-          <p className="legend">Trusted by Thousands</p>
-        </div>
-      </Carousel>
+    <div className="w-full max-w-screen-xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4">
+      <div className="rounded-2xl overflow-hidden">
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          showThumbs={false}
+          showStatus={false}
+          interval={4000}
+        >
+          <div>
+            <img
+              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]  rounded-2xl"
+              src={bannerImg1}
+              alt="Courier Banner 1"
+            />
+          </div>
+          <div>
+            <img
+              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]   rounded-2xl"
+              src={bannerImg2}
+              alt="Courier Banner 2"
+            />
+          </div>
+          <div>
+            <img
+              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]   rounded-2xl"
+              src={bannerImg3}
+              alt="Courier Banner 3"
+            />
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 };
