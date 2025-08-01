@@ -137,6 +137,8 @@ const SendParcel = () => {
           creation_date: new Date().toISOString(),
           tracking_id: generateTrackingID(),
         };
+        // Log the data before sending
+        console.log("Parcel Data Sending to Server:", parcelData);
 
         axiosSecure.post("/parcels", parcelData).then((res) => {
           if (res.data.insertedId) {
@@ -149,7 +151,7 @@ const SendParcel = () => {
               background: "#1e293b",
               color: "#f8fafc",
             });
-            //   payment page   redirect  korbo
+            //  TODO: payment page  redirect  korbo eikhane 
           } else {
             Swal.fire({
               title: "Error!",

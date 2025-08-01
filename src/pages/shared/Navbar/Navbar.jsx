@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import ExpressLogo from "../ExpressLogo/ExpressLogo";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
+  const { user } = useAuth();
   const navItems = (
     <>
       <li>
@@ -10,11 +12,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/sendParcel" className={" text-black font-bold "}>
-          Send A Parcel
-        </NavLink>
-      </li>
+
       <li>
         <NavLink to="/track-parcel" className={" text-black font-bold "}>
           Track Parcel
@@ -36,6 +34,15 @@ const Navbar = () => {
           Coverage
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/dashboard" className={" text-black font-bold "}>
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
