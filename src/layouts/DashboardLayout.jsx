@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router";
+import ExpressLogo from "../pages/shared/ExpressLogo/ExpressLogo";
 
 const DashboardLayout = () => {
   return (
@@ -44,7 +45,7 @@ const DashboardLayout = () => {
 
         {/* Main page content */}
         <div className="p-4">
-          <Outlet /> 
+          <Outlet />
         </div>
       </div>
 
@@ -56,11 +57,12 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
         ></label>
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          <ExpressLogo></ExpressLogo>
           <li>
             <Link to="/dashboard/home">Home</Link>
           </li>
           <li>
-            <Link to="/dashboard/settings">Settings</Link>
+            <Link to="/dashboard/myParcels">MyParcels</Link>
           </li>
           {/* add more links here */}
         </ul>
