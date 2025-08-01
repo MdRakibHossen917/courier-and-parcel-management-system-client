@@ -1,21 +1,30 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import ExpressLogo from "../ExpressLogo/ExpressLogo";
 
 const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className={" text-black font-bold "}>
+          Home
+        </NavLink>
       </li>
 
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about" className={" text-black font-bold "}>
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/coverage" className={" text-black font-bold "}>
+          Coverage
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-cyan-300 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,7 +58,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link
+          to="/login"
+          className=" btn btn-outline btn-accent font-bold text-black "
+        >
+          Login
+        </Link>
       </div>
     </div>
   );
