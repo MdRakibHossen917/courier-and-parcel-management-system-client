@@ -3,7 +3,7 @@
     "region": "Dhaka",
     "district": "Dhaka",
     "city": "Dhaka",
-    "covered_area": ["Uttara", "Dhanmondi", "Mirpur", "Mohammadpur"],
+    "covered_area": ["Uttara", "Dhanmondi", "Mirpur", "Mohammadpur","Jatrabari","Gulshan","Banani","Savar"],
     "status": "active",
     "flowchart": "https://example.com/dhaka-flowchart.png",
     "longitude": 90.4125,

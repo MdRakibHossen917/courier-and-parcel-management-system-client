@@ -10,6 +10,21 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/sendParcel" className={" text-black font-bold "}>
+          Send A Parcel
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/track-parcel" className={" text-black font-bold "}>
+          Track Parcel
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/booking-history" className={" text-black font-bold "}>
+          Booking History
+        </NavLink>
+      </li>
 
       <li>
         <NavLink to="/about" className={" text-black font-bold "}>
