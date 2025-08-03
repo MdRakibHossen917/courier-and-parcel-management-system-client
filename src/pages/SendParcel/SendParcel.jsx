@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
@@ -16,6 +16,7 @@ const SendParcel = () => {
   const serviceCenters = useLoaderData();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -151,7 +152,9 @@ const SendParcel = () => {
               background: "#1e293b",
               color: "#f8fafc",
             });
-            //  TODO: payment page  redirect  korbo eikhane 
+            navigate("/dashboard/myParcels");
+
+            //  TODO: payment page  redirect  korbo eikhane
           } else {
             Swal.fire({
               title: "Error!",

@@ -103,6 +103,12 @@ const DashboardLayout = () => {
           {!roleLoading && role === "admin" && (
             <>
               <li>
+                <NavLink to="/dashboard/assign-rider">
+                  <FaMotorcycle className="inline-block mr-2" />
+                  Assign Rider
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/dashboard/pending-riders">
                   <FaUserClock className="  mr-2" />
                   Pending Riders
