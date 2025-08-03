@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useTrackingLogger from "../../hooks/useTrackingLogger";
 
 const generateTrackingID = () => {
   const date = new Date();
@@ -17,6 +18,7 @@ const SendParcel = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const { logTracking } = useTrackingLogger();
 
   const {
     register,
@@ -129,6 +131,7 @@ const SendParcel = () => {
       },
     }).then((result) => {
       if (result.isConfirmed) {
+        const tracking_id = generateTrackingID();
         const parcelData = {
           ...data,
           cost: totalCost,
@@ -136,12 +139,12 @@ const SendParcel = () => {
           payment_status: "unpaid",
           delivery_status: "not_collected",
           creation_date: new Date().toISOString(),
-          tracking_id: generateTrackingID(),
+          tracking_id: tracking_id,
         };
         // Log the data before sending
         console.log("Parcel Data Sending to Server:", parcelData);
 
-        axiosSecure.post("/parcels", parcelData).then((res) => {
+        axiosSecure.post("/parcels", parcelData).then(async (res) => {
           if (res.data.insertedId) {
             Swal.fire({
               title: "Parcel Created!",
@@ -152,9 +155,17 @@ const SendParcel = () => {
               background: "#1e293b",
               color: "#f8fafc",
             });
+
+            await logTracking({
+              tracking_id: parcelData.tracking_id,
+              status: "parcel_created",
+              details: `Created by ${user.displayName}`,
+              updated_by: user.email,
+            });
+
             navigate("/dashboard/myParcels");
 
-            //  TODO: payment page  redirect  korbo eikhane
+           
           } else {
             Swal.fire({
               title: "Error!",

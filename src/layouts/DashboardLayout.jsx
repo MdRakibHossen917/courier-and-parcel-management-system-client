@@ -68,8 +68,9 @@ const DashboardLayout = () => {
         ></label>
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-2">
           <ExpressLogo />
+          
           <li>
-            <NavLink to="/dashboard/home">
+            <NavLink to="/dashboard">
               <FaHome className="mr-2" /> Home
             </NavLink>
           </li>

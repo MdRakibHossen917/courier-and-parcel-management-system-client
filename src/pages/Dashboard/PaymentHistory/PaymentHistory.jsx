@@ -9,7 +9,7 @@ const PaymentHistory = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { isPending, data: payments = [] } = useQuery({
+  const { isLoading, data: payments = [] } = useQuery({
     queryKey: ["payments", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments?email=${user.email}`);
@@ -17,7 +17,7 @@ const PaymentHistory = () => {
     },
   });
 
-  if (isPending) {
+  if (isLoading) {
     return "...loading";
   }
 
@@ -28,29 +28,33 @@ const PaymentHistory = () => {
           <tr>
             <th>#</th>
             <th>Parcel ID</th>
+            <th>Track ID</th>
             <th>Amount</th>
             <th>Transaction</th>
             <th>Paid At</th>
           </tr>
         </thead>
         <tbody>
-          {payments?.length > 0 ? (
+          {payments.length > 0 ? (
             payments.map((p, index) => (
               <tr key={p.transactionId}>
                 <td>{index + 1}</td>
                 <td className="truncate" title={p.parcelId}>
                   {p.parcelId}
                 </td>
+                <td className="truncate" title={p.tracking_id || "N/A"}>
+                  {p.tracking_id || "N/A"}
+                </td>
                 <td>৳{p.amount}</td>
-                <td className="font-mono text-sm">
-                  <span title={p.transactionId}>{p.transactionId}</span>
+                <td className="font-mono text-sm" title={p.transactionId}>
+                  {p.transactionId}
                 </td>
                 <td>{formatDate(p.paid_at_string)}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="7" className="text-center text-gray-500 py-6">
+              <td colSpan="6" className="text-center text-gray-500 py-6">
                 No payment history found.
               </td>
             </tr>
