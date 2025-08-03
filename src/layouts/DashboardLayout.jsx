@@ -105,7 +105,7 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/my-earning">
+                <NavLink to="/dashboard/my-earning"> 
                   <FaWallet className="inline-block mr-2" />
                   My Earnings
                 </NavLink>
