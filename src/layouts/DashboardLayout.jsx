@@ -13,6 +13,8 @@ import {
   FaUserCheck,
   FaUserClock,
   FaUserShield,
+  FaTasks,
+  FaCheckCircle,
 } from "react-icons/fa";
 import useUserRole from "../hooks/useUserRole";
  
@@ -70,6 +72,7 @@ const DashboardLayout = () => {
               <FaHome className="mr-2" /> Home
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/dashboard/myParcels">
               <FaBoxOpen className="mr-2" /> My Parcels
@@ -82,7 +85,7 @@ const DashboardLayout = () => {
           </li>
           <li>
             <NavLink to="/dashboard/track">
-              <FaTruck className="mr-2" /> Track a Package
+              <FaTasks className="mr-2" /> Track a Package
             </NavLink>
           </li>
           <li>
@@ -91,23 +94,41 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           {/*rider links */}
-          <li>
-            <NavLink to="/dashboard/assign-rider">
-              <FaMotorcycle className="inline-block mr-2" />
-              Assign Rider
-            </NavLink>
-          </li>
 
-          {/*admin route */}
+          {!roleLoading && role === "rider" && (
+            <>
+              <li>
+                <NavLink to="/dashboard/pending-deliveries">
+                  <FaTasks className="inline-block mr-2" />
+                  Pending Deliveries
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/completed-deliveries">
+                  <FaCheckCircle className="inline-block mr-2" />
+                  Completed-Deliveries
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          {/*admin links */}
 
           {!roleLoading && role === "admin" && (
             <>
+              <li>
+                <NavLink to="/dashboard/users">
+                  <FaHome className="mr-2" /> Users
+                </NavLink>
+              </li>
               <li>
                 <NavLink to="/dashboard/assign-rider">
                   <FaMotorcycle className="inline-block mr-2" />
                   Assign Rider
                 </NavLink>
               </li>
+
+             
               <li>
                 <NavLink to="/dashboard/pending-riders">
                   <FaUserClock className="  mr-2" />

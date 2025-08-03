@@ -20,6 +20,10 @@ import MakeAdmin from "../pages/Dashboard/MakeAdmin/MakeAdmin";
 import ForB from "../pages/ForB/ForB";
 import AdminRoute from "../routes/AdminRoutes";
 import AssignRider from "../pages/Dashboard/AssignRider/AssignRider";
+import PendingDeliveries from "../pages/Dashboard/PendingDeliveries/PendingDeliveries";
+import RiderRoute from "../routes/RiderRoute";
+import CompletedDeliveries from "../pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
+import User from "../pages/Dashboard/Users/Users";
 
 export const router = createBrowserRouter([
   {
@@ -96,6 +100,11 @@ export const router = createBrowserRouter([
         Component: MyParcels,
       },
       {
+        path:'users',
+        Component: User,
+
+      },
+      {
         path: "payment/:parcelId",
         Component: Payment,
       },
@@ -106,6 +115,24 @@ export const router = createBrowserRouter([
       {
         path: "track",
         Component: TrackParcel,
+      },
+
+      //rider
+      {
+        path: "pending-deliveries",
+        element: (
+          <RiderRoute>
+            <PendingDeliveries></PendingDeliveries>
+          </RiderRoute>
+        ),
+      },
+      {
+        path:"completed-deliveries",
+        element:(
+          <RiderRoute>
+            <CompletedDeliveries></CompletedDeliveries>
+          </RiderRoute>
+        )
       },
       {
         path: "assign-rider",
