@@ -30,12 +30,14 @@ const Navbar = () => {
           Send A Parcel
         </NavLink>
       </li>
-     
-
-      
       <li>
         <NavLink to="/about" className={"text-black font-bold"}>
           About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/beARider" className={"text-black font-bold"}>
+          Request Be a Rider
         </NavLink>
       </li>
       <li>
@@ -81,9 +83,9 @@ const Navbar = () => {
           </ul>
         </div>
        
-        <Link to="/">
+        <span to="/">
           <ExpressLogo />
-        </Link>
+        </span>
       </div>
 
       <div className="navbar-center hidden lg:flex">
