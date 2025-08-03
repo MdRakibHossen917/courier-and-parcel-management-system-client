@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import axios from "axios";
+import useAxios from "../../../hooks/useAxios";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Register = () => {
   const {
@@ -14,7 +14,7 @@ const Register = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const [profilePic, setProfilePic] = useState("");
-  const axiosInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from || "/";
