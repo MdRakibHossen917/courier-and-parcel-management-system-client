@@ -73,7 +73,7 @@ const DashboardLayout = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard/myParcels">
+            <Link to="/dashboard/track">
               <FaTruck className="mr-2" /> Track a Package
             </Link>
           </li>

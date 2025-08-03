@@ -7,12 +7,12 @@ import Register from "../pages/Authentication/Register/Register";
 import Coverage from "../pages/Coverage/Coverage";
 import PrivateRoute from "../routes/PrivateRoute";
 import SendParcel from "../pages/SendParcel/SendParcel";
-import TrackParcel from "../pages/TrackParcel/TrackParcel";
 import BookingHistory from "../pages/BookingHistory/BookingHistory";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import TrackParcel from "../pages/Dashboard/TrackParcel/TrackParcel";
 
 export const router = createBrowserRouter([
   {
@@ -38,14 +38,6 @@ export const router = createBrowserRouter([
         loader: () => fetch("./serviceCenter.json").then((res) => res.json()),
       },
 
-      {
-        path: "/track-parcel",
-        element: (
-          <PrivateRoute>
-            <TrackParcel></TrackParcel>
-          </PrivateRoute>
-        ),
-      },
       {
         path: "/booking-history",
         element: (
@@ -90,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: "paymentHistory",
         Component: PaymentHistory,
+      },
+      {
+        path: "track",
+        Component: TrackParcel,
       },
     ],
   },
