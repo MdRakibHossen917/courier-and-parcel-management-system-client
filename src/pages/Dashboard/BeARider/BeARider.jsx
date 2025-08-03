@@ -85,6 +85,8 @@ const BeARider = () => {
       });
       console.error("Submission error:", error);
     }
+
+    reset();
   };
 
   return (

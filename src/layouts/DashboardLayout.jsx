@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router";  
+import { NavLink, Outlet } from "react-router";
 import ExpressLogo from "../pages/shared/ExpressLogo/ExpressLogo";
 
 // Import icons
@@ -9,6 +9,10 @@ import {
   FaMoneyCheckAlt,
   FaTruck,
   FaUserEdit,
+  FaMotorcycle,
+  FaUserCheck,
+  FaUserClock,
+  FaUserShield,
 } from "react-icons/fa";
 
 const DashboardLayout = () => {
@@ -58,29 +62,54 @@ const DashboardLayout = () => {
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-2">
           <ExpressLogo />
           <li>
-            <Link to="/dashboard/home">
+            <NavLink to="/dashboard/home">
               <FaHome className="mr-2" /> Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard/myParcels">
+            <NavLink to="/dashboard/myParcels">
               <FaBoxOpen className="mr-2" /> My Parcels
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard/paymentHistory">
+            <NavLink to="/dashboard/paymentHistory">
               <FaMoneyCheckAlt className="mr-2" /> Payment History
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard/track">
+            <NavLink to="/dashboard/track">
               <FaTruck className="mr-2" /> Track a Package
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard/profile">
+            <NavLink to="/dashboard/profile">
               <FaUserEdit className="mr-2" /> Update Profile
-            </Link>
+            </NavLink>
+          </li>
+          {/*rider links */}
+          <li>
+            <NavLink to="/dashboard/assign-rider">
+              <FaMotorcycle className="inline-block mr-2" />
+              Assign Rider
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/active-riders">
+              <FaUserCheck className="  mr-2" />
+              Active Riders
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/pending-riders">
+              <FaUserClock className="  mr-2" />
+              Pending Riders
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/makeAdmin">
+              <FaUserShield className="  mr-2" />
+              Make Admin
+            </NavLink>
           </li>
         </ul>
       </div>
