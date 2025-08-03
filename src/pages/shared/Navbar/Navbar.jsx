@@ -4,68 +4,63 @@ import ExpressLogo from "../ExpressLogo/ExpressLogo";
 import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user,logOut } = useAuth();
-  const navigate=useNavigate()
- const handleLogOut = () => {
-   logOut()
-     .then(() => {
-       console.log("Successfully logged out");
-        
-       navigate('/login');
-       // Or show a toast notification
-      //  toast.success("Logged out successfully");
-     })
-     .catch((error) => {
-       console.error("Logout error:", error);
-       // Optionally show an error toast
-       // toast.error("Logout failed. Please try again.");
-     });
- };
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("Successfully logged out");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  };
 
   const navItems = (
     <>
       <li>
-        <NavLink to="/" className={" text-black font-bold "}>
+        <NavLink to="/" className={"text-black font-bold"}>
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/sendParcel" className={" text-black font-bold "}>
+        <NavLink to="/sendParcel" className={"text-black font-bold"}>
           Send A Parcel
         </NavLink>
       </li>
       <li>
-        <NavLink to="/track-parcel" className={" text-black font-bold "}>
+        <NavLink to="/track-parcel" className={"text-black font-bold"}>
           Track Parcel
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/booking-history" className={" text-black font-bold "}>
+        <NavLink to="/booking-history" className={"text-black font-bold"}>
           Booking History
         </NavLink>
       </li>
       <li>
-        <NavLink to="/about" className={" text-black font-bold "}>
+        <NavLink to="/about" className={"text-black font-bold"}>
           About
         </NavLink>
       </li>
       <li>
-        <NavLink to="/coverage" className={" text-black font-bold "}>
-          Coverage
+        <NavLink to="/coverage" className={"text-black font-bold"}>
+          Delivery_Hub
         </NavLink>
       </li>
       {user && (
-        <>
-          <li>
-            <NavLink to="/dashboard" className={" text-black font-bold "}>
-              Dashboard
-            </NavLink>
-          </li>
-        </>
+        <li>
+          <NavLink to="/dashboard" className={"text-black font-bold"}>
+            Dashboard
+          </NavLink>
+        </li>
       )}
     </>
   );
+
   return (
     <div className="navbar bg-cyan-300 shadow-sm">
       <div className="navbar-start">
@@ -93,25 +88,28 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <a href="/" className="">
+       
+        <Link to="/">
           <ExpressLogo />
-        </a>
+        </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
+
       <div className="navbar-end">
         {user ? (
           <button
             onClick={handleLogOut}
-            className="btn  btn-outline btn-accent   text-black "
+            className="btn btn-outline btn-accent text-black"
           >
             Log Out
           </button>
         ) : (
           <Link
             to="/login"
-            className=" btn btn-outline btn-accent font-bold text-black "
+            className="btn btn-outline btn-accent font-bold text-black"
           >
             Login
           </Link>

@@ -10,7 +10,12 @@ const MyParcels = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
-  const { data: parcels = [], refetch } = useQuery({
+  const {
+    data: parcels = [],
+    refetch,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["my-parcels", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/parcels?email=${user.email}`);
@@ -20,8 +25,7 @@ const MyParcels = () => {
   });
 
   const handleView = (id) => {
-    console.log("View parcel", id);
-    // Optional: Add modal or route to details page
+    navigate(`/dashboard/parcels/${id}`);
   };
 
   const handlePay = (id) => {
@@ -61,6 +65,18 @@ const MyParcels = () => {
 
   const formatDate = (iso) => new Date(iso).toLocaleString();
 
+  if (isLoading) {
+    return <p className="text-center mt-4">Loading parcels...</p>;
+  }
+
+  if (error) {
+    return (
+      <p className="text-center mt-4 text-red-500">
+        Error loading parcels: {error.message}
+      </p>
+    );
+  }
+
   return (
     <div className="overflow-x-auto shadow-md rounded-xl">
       <h2 className="text-lg font-semibold px-4 py-2">
@@ -79,13 +95,25 @@ const MyParcels = () => {
           </tr>
         </thead>
         <tbody>
+          {parcels.length === 0 && (
+            <tr>
+              <td colSpan="7" className="text-center text-gray-500 py-6">
+                No parcels found.
+              </td>
+            </tr>
+          )}
           {parcels.map((parcel, index) => (
             <tr key={parcel._id}>
               <td>{index + 1}</td>
               <td className="max-w-[180px] truncate">{parcel.title}</td>
               <td className="capitalize">{parcel.type}</td>
               <td>{formatDate(parcel.createdAt)}</td>
-              <td>৳{parcel.cost}</td>
+              <td>
+                ৳
+                {parcel.cost !== undefined
+                  ? Number(parcel.cost).toFixed(2)
+                  : "N/A"}
+              </td>
               <td>
                 <span
                   className={`badge ${
@@ -94,7 +122,7 @@ const MyParcels = () => {
                       : "badge-error"
                   }`}
                 >
-                  {parcel.payment_status}
+                  {parcel.payment_status ?? "unknown"}
                 </span>
               </td>
               <td className="space-x-2">
@@ -121,13 +149,6 @@ const MyParcels = () => {
               </td>
             </tr>
           ))}
-          {parcels.length === 0 && (
-            <tr>
-              <td colSpan="7" className="text-center text-gray-500 py-6">
-                No parcels found.
-              </td>
-            </tr>
-          )}
         </tbody>
       </table>
     </div>
