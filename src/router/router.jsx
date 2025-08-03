@@ -24,6 +24,7 @@ import PendingDeliveries from "../pages/Dashboard/PendingDeliveries/PendingDeliv
 import RiderRoute from "../routes/RiderRoute";
 import CompletedDeliveries from "../pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
 import User from "../pages/Dashboard/Users/Users";
+import MyEarnings from "../pages/Dashboard/MyEarnings/MyEarnings";
 
 export const router = createBrowserRouter([
   {
@@ -100,9 +101,8 @@ export const router = createBrowserRouter([
         Component: MyParcels,
       },
       {
-        path:'users',
+        path: "users",
         Component: User,
-
       },
       {
         path: "payment/:parcelId",
@@ -119,6 +119,14 @@ export const router = createBrowserRouter([
 
       //rider
       {
+        path: "my-earning",
+        element: (
+          <RiderRoute>
+           <MyEarnings></MyEarnings>
+          </RiderRoute>
+        ),
+      },
+      {
         path: "pending-deliveries",
         element: (
           <RiderRoute>
@@ -126,13 +134,14 @@ export const router = createBrowserRouter([
           </RiderRoute>
         ),
       },
+
       {
-        path:"completed-deliveries",
-        element:(
+        path: "completed-deliveries",
+        element: (
           <RiderRoute>
             <CompletedDeliveries></CompletedDeliveries>
           </RiderRoute>
-        )
+        ),
       },
       {
         path: "assign-rider",

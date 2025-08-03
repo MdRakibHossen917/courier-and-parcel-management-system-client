@@ -15,6 +15,7 @@ import {
   FaUserShield,
   FaTasks,
   FaCheckCircle,
+  FaWallet,
 } from "react-icons/fa";
 import useUserRole from "../hooks/useUserRole";
  
@@ -104,6 +105,12 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/dashboard/my-earning">
+                  <FaWallet className="inline-block mr-2" />
+                  My Earnings
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/dashboard/completed-deliveries">
                   <FaCheckCircle className="inline-block mr-2" />
                   Completed-Deliveries
@@ -128,7 +135,6 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
 
-             
               <li>
                 <NavLink to="/dashboard/pending-riders">
                   <FaUserClock className="  mr-2" />
