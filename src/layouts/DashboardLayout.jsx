@@ -1,6 +1,15 @@
 import React from "react";
-import { Link, Outlet } from "react-router";
+import { Link, Outlet } from "react-router";  
 import ExpressLogo from "../pages/shared/ExpressLogo/ExpressLogo";
+
+// Import icons
+import {
+  FaHome,
+  FaBoxOpen,
+  FaMoneyCheckAlt,
+  FaTruck,
+  FaUserEdit,
+} from "react-icons/fa";
 
 const DashboardLayout = () => {
   return (
@@ -31,16 +40,6 @@ const DashboardLayout = () => {
             </label>
           </div>
           <div className="mx-2 flex-1 px-2 lg:hidden">Dashboard</div>
-          <div className="hidden flex-none lg:hidden">
-            <ul className="menu menu-horizontal">
-              <li>
-                <a>Navbar Item 1</a>
-              </li>
-              <li>
-                <a>Navbar Item 2</a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Main page content */}
@@ -56,15 +55,33 @@ const DashboardLayout = () => {
           className="drawer-overlay"
           aria-label="close sidebar"
         ></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          <ExpressLogo></ExpressLogo>
+        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-2">
+          <ExpressLogo />
           <li>
-            <Link to="/dashboard/home">Home</Link>
+            <Link to="/dashboard/home">
+              <FaHome className="mr-2" /> Home
+            </Link>
           </li>
           <li>
-            <Link to="/dashboard/myParcels">MyParcels</Link>
+            <Link to="/dashboard/myParcels">
+              <FaBoxOpen className="mr-2" /> My Parcels
+            </Link>
           </li>
-          {/* add more links here */}
+          <li>
+            <Link to="/dashboard/paymentHistory">
+              <FaMoneyCheckAlt className="mr-2" /> Payment History
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard/myParcels">
+              <FaTruck className="mr-2" /> Track a Package
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard/profile">
+              <FaUserEdit className="mr-2" /> Update Profile
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

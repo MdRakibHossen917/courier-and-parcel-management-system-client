@@ -30,17 +30,9 @@ const Navbar = () => {
           Send A Parcel
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/track-parcel" className={"text-black font-bold"}>
-          Track Parcel
-        </NavLink>
-      </li>
+     
 
-      <li>
-        <NavLink to="/booking-history" className={"text-black font-bold"}>
-          Booking History
-        </NavLink>
-      </li>
+      
       <li>
         <NavLink to="/about" className={"text-black font-bold"}>
           About
@@ -48,7 +40,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/coverage" className={"text-black font-bold"}>
-          Delivery_Hub
+          Delivery_Station
         </NavLink>
       </li>
       {user && (
