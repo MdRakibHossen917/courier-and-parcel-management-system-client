@@ -18,9 +18,12 @@ const RiderDashboard = () => {
     setLoadingAssigned(true);
     setErrorAssigned(null);
     axios
-      .get(`http://localhost:5000/rider/parcels?email=${user.email}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        `https://courier-server-six.vercel.app/rider/parcels?email=${user.email}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => setAssignedParcels(res.data))
       .catch((err) => {
         console.error(
@@ -36,7 +39,7 @@ const RiderDashboard = () => {
     setErrorCompleted(null);
     axios
       .get(
-        `http://localhost:5000/rider/completed-parcels?email=${user.email}`,
+        `https://courier-server-six.vercel.app/rider/completed-parcels?email=${user.email}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

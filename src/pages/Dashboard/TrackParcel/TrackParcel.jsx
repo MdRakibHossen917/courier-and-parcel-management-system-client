@@ -14,9 +14,9 @@ const TrackParcel = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/tracking/${trackingId}`
+        `https://courier-server-six.vercel.app/tracking/${trackingId}`
       );
-      setTrackingData(res.data); // API থেকে array আকারে ট্র্যাকিং লগ আসবে
+      setTrackingData(res.data);  
     } catch (err) {
       setError("❌ Tracking ID is invalid or not found.");
     } finally {

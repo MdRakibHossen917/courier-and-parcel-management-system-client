@@ -11,9 +11,12 @@ export default function BookingHistory() {
   useEffect(() => {
     async function fetchParcels() {
       try {
-        const res = await axios.get("http://localhost:5000/api/parcels", {
-          headers: { Authorization: `Bearer ${user.token}` },
-        });
+        const res = await axios.get(
+          "https://courier-server-six.vercel.app/api/parcels",
+          {
+            headers: { Authorization: `Bearer ${user.token}` },
+          }
+        );
         setParcels(res.data);
       } catch (err) {
         console.error(err);

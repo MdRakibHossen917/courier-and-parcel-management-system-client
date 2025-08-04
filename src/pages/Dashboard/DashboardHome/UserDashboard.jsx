@@ -15,11 +15,14 @@ const UserDashboard = () => {
     setError(null);
 
     axios
-      .get(`http://localhost:5000/parcels?email=${user.email}`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Firebase Token
-        },
-      })
+      .get(
+        `https://courier-server-six.vercel.app/parcels?email=${user.email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Firebase Token
+          },
+        }
+      )
       .then((res) => {
         setParcels(res.data);
       })
