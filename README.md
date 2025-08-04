@@ -1,12 +1,80 @@
-# React + Vite
+# Courier & Parcel Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack courier and parcel management platform designed to simplify parcel delivery and tracking with role-based access for Customers, Admins, and Riders.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Project Summary
 
-## Expanding the ESLint configuration
+This application allows customers to send parcels easily while admins manage the entire delivery process. Admins assign riders to deliveries, and riders complete deliveries and earn money which they can cash out from their wallet. Customers can track their parcels in real-time.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧩 Key Features
+
+- **Customer Features:**
+  - Send parcels with detailed information
+  - Track parcel status and delivery progress in real-time
+
+- **Admin Features:**
+  - Manage all users and their roles
+  - Assign riders to parcel deliveries
+  - View and approve rider requests to join the platform
+  - Monitor all parcel deliveries and their statuses
+  - View pending tasks and all activities
+
+- **Rider Features:**
+  - Receive parcel assignments from admin
+  - Mark parcels as delivered
+  - View delivery history and earnings
+  - Wallet system to accumulate earnings
+  - Cash out money from wallet
+
+- **General:**
+  - Secure authentication and role-based route protection
+  - Responsive and user-friendly interface
+  - Real-time updates on delivery and parcel status
+
+---
+
+## 🔧 Technology Stack
+
+- **Frontend:** React.js, Tailwind CSS, React Router, Axios
+- **Backend:** Node.js, Express.js, MongoDB, Firebase Authentication, JWT
+- **Hosting:** Firebase (Frontend), Vercel (Backend)
+- **Payment:** Stripe Integration for cashouts and payments
+
+---
+
+## 📂 Repository Links
+
+- [Client Repository (Frontend)](https://github.com/MdRakibHossen917/courier-and-parcel-management-system-client)
+- [Server Repository (Backend)](https://github.com/MdRakibHossen917/courier-and-parcel-management-system-server)
+
+---
+
+## 🔗 Live Demo
+
+[https://express-delivery-9e788.web.app/](https://express-delivery-9e788.web.app/)
+
+---
+
+## 📝 How to Run Locally
+
+1. Clone the repositories
+2. Follow README instructions in both client and server repos for environment setup
+3. Run `npm install` and `npm start` or equivalent commands in both projects
+4. Make sure to configure Firebase and Stripe keys as per documentation
+
+---
+
+## 🙏 Acknowledgements
+
+Thanks to Excel Technologies Ltd. for the opportunity to work on this assignment.
+
+---
+
+**Author:** Md Rakib Hossen  
+**Email:** mdrakibhossencse@gmail.com  
+**Portfolio:** https://my-portfolio-dd98e.web.app/
+
